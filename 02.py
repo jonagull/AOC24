@@ -1,12 +1,9 @@
-
-
 with open('02.txt', 'r') as file:
     file = file.read()
 
 rows = file.strip().split('\n')
 data = [list(map(int, row.split())) for row in rows]
 safeLevels = []    
-print('start log safelevel', safeLevels)
 
 def checkLevels(levels):
     filteredLevels = []
@@ -14,19 +11,11 @@ def checkLevels(levels):
     #loop through levels and find which are actually sorted
     for i in range (len(levels)):
         level = levels[i]
-        reversedLevel = level[::-1]
 
-        #Check if numbers in level are increasing or decreasing
-        # if sorted(level) == level:
-        #     filteredLevels.append(level)
-        # elif sorted(reversedLevel) == reversedLevel:
-        #     filteredLevels.append(level)
         if checkIfSortedList(level):
             filteredLevels.append(level)
 
-
         problemDampener(level)
-
 
     #loop over filtered levels
     for l in range (len(filteredLevels)):
@@ -52,12 +41,10 @@ def checkIfSortedList(level):
     
 
 def problemDampener(level):
-    copyLevel = level[:]  # Create a copy to avoid modifying the original list
+    copyLevel = level[:]  
     print(level)
     isSafe = False
 
-
-    # Loop through the array
     for x in range(len(level)):
         currentLevel = copyLevel[:]
         removed_element = currentLevel.pop(x)
@@ -76,8 +63,6 @@ def checkLevelIsSafe(level):
     allowedDiffs = [1, 2, 3]
     lastIndex = len(level) - 1
     isSafe = True
-
-    print('level passes through',level)
      
     # print('level',level)
 
@@ -98,7 +83,5 @@ def checkLevelIsSafe(level):
             isSafe = False
 
     return isSafe
-
-            
 
 checkLevels(data)
