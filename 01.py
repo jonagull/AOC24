@@ -1,5 +1,3 @@
-firstList = [3, 4, 2, 1, 3, 3]
-secondList = [4, 3, 5, 3, 9, 3]
 
 def findSum(arrayOne, arrayTwo):
     diff = []
@@ -15,9 +13,22 @@ def findSum(arrayOne, arrayTwo):
 
     print("The sum is", sum(diff))
     return sum(diff)
-    
 
-findSum(firstList, secondList)
+def findOccurences(first, second):
+    inSecond = []
+    for i in range (len(first)):
+        if first[i] in second:
+            inSecond.append(first[i])
+
+    print(inSecond)
+
+    lol = []
+    for i in range (len(inSecond)):
+        print("First array has", inSecond[i], "in the second array", second.count(inSecond[i]), "times")    
+        lol.append(inSecond[i] * second.count(inSecond[i]))
+
+    print("The sum of the occurences is", sum(lol))
+
 
 first = [
     53906,
@@ -2027,4 +2038,6 @@ second = [
     
 
 
+
+findOccurences(first, second)
 findSum(first, second)
